@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Bhardwaj Original™ | SEBI Market Insights</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        @import url('https://googleapis.com');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="w-full text-center py-6 bg-gray-800 border-b border-gray-700 shadow-lg">
+        <h1 class="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wide uppercase">
+            Pankaj Bhardwaj Original™
+        </h1>
+        <p class="text-xs md:text-sm text-gray-400 font-medium tracking-wider mt-1">
+            SEBI MARKET INSIGHTS
+        </p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 max-w-md mx-auto text-center">
+        
+        <!-- Logo Image Section -->
+        <div class="w-28 h-28 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-gray-700 bg-gray-800 flex items-center justify-center">
+            <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-3xl font-bold mb-2">Pankaj Bhardwaj</h2>
+        <div class="inline-block bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border border-amber-500/20">
+            Official Channel
+        </div>
+
+        <!-- Redirecting Timer Alert Box -->
+        <div class="w-full bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 mb-6 text-sm text-amber-400 font-medium flex items-center justify-center gap-2">
+            <i class="fa-solid fa-clock animate-pulse"></i>
+            <span>Redirecting to Telegram in: <strong id="timer" class="text-lg font-bold text-amber-500">20</strong> seconds</span>
+        </div>
+
+        <!-- Profit Box Card -->
+        <div class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-2xl mb-8 transform transition hover:scale-[1.02]">
+            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Always Profit – Daily Earn Up To</p>
+            <p class="text-4xl md:text-5xl font-black text-green-400 mb-4">₹5,000</p>
+            
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-300 bg-gray-900/50 py-2 px-4 rounded-xl border border-gray-700/50">
+                <span class="flex h-3 w-3 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span class="font-semibold text-green-400">23,636+</span> active traders earning daily
+            </div>
+        </div>
+
+        <!-- CTA Telegram Button -->
+        <a id="tg-btn" href="https://t.me" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 bg-[#0088cc] hover:bg-[#0077b3] text-white text-lg font-bold py-4 px-6 rounded-2xl shadow-lg shadow-[#0088cc]/30 transition-all duration-300 transform active:scale-95 animate-bounce">
+            <i class="fa-brands fa-telegram text-2xl"></i>
+            Join VIP Channel Via Telegram
+        </a>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="w-full text-center py-4 bg-gray-950 border-t border-gray-800 text-xs text-gray-500 tracking-wide font-medium">
+        Ad managed by snow ads
+    </footer>
+
+    <!-- Auto Redirect Script -->
+    <script>
+        // यहाँ अपना टेलीग्राम लिंक डालें (यह बटन और ऑटो-रीडायरेक्ट दोनों जगह काम करेगा)
+        const telegramLink = "https://t.me"; 
+        
+        // बटन में लिंक सेट करना
+        document.getElementById('tg-btn').setAttribute('href', telegramLink);
+
+        let timeLeft = 20;
+        const timerElement = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.parentElement.innerHTML = "<span class='text-green-400 font-bold'>Redirecting now...</span>";
+                // 20 सेकंड पूरे होते ही इस लिंक पर ऑटोमैटिक भेज देगा
+                window.location.href = telegramLink; 
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
