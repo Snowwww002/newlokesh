@@ -3,98 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pankaj Bhardwaj Original™ | SEBI Market Insights</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://jsdelivr.net"></script>
-    <!-- Font Awesome Icons -->
+    <title>Zero to Hero</title>
+    <!-- Font Awesome Icons for professional visuals -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        @import url('https://googleapis.com');
-        body { font-family: 'Poppins', sans-serif; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0f0c1b; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Main Container Card - Matches your screenshot layout exactly */
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 430px; /* Perfect, premium sizing for all mobile viewports */
+            border-radius: 30px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* 1. Profile Round Image Container (Compact & Sharp) */
+        .profile-round-container {
+            width: 85px; /* Attractive, optimal circle size matching the original asset */
+            height: 85px;
+            margin: 5px auto 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: #111e3d; /* Fallback dark background */
+        }
+
+        .profile-round-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keeps the profile image crisp and perfectly centered */
+        }
+
+        /* Typography & Header styling */
+        .main-title {
+            color: #5856d6;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stats-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .stats-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stats-item.members { color: #2ecc71; font-weight: 600; }
+        .stats-item.signals { color: #3498db; font-weight: 600; }
+
+        /* Telegram Direct Action Button */
+        .tg-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #5b62f4, #8340f1);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(91, 98, 244, 0.35);
+            transition: transform 0.2s;
+        }
+
+        .tg-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* Features List block spacing */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f8f9fe;
+            border: 1px solid #edf0f9;
+            padding: 14px 16px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .feature-icon {
+            width: 34px;
+            height: 34px;
+            background: #eceaff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5856d6;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            color: #333333;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Banner styling */
+        .free-banner {
+            background: #f0edff;
+            border: 1px dashed #c0b3ff;
+            border-radius: 15px;
+            padding: 12px;
+            font-size: 13px;
+            color: #5856d6;
+            margin-bottom: 20px;
+        }
+
+        .free-banner strong {
+            color: #d63031;
+        }
+
+        /* Footer Sponsor Section */
+        .footer-ad {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .footer-ad a {
+            color: #5856d6;
+            text-decoration: none;
+            font-weight: 600;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- Header Section -->
-    <header class="w-full text-center py-6 bg-gray-800 border-b border-gray-700 shadow-lg">
-        <h1 class="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wide uppercase">
-            Pankaj Bhardwaj Original™
-        </h1>
-        <p class="text-xs md:text-sm text-gray-400 font-medium tracking-wider mt-1">
-            SEBI MARKET INSIGHTS
-        </p>
-    </header>
-
-    <!-- Main Content Section -->
-    <main class="flex-grow flex flex-col items-center justify-center px-4 py-12 max-w-md mx-auto text-center">
+    <div class="card">
         
-        <!-- Logo Image Section -->
-        <div class="w-28 h-28 rounded-full overflow-hidden shadow-xl mb-6 border-4 border-gray-700 bg-gray-800 flex items-center justify-center">
-            <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
+        <!-- ========================================================
+             1. EDIT IMAGE HERE
+             This is your round profile area using 'logo.png'.
+             Change "logo.png" to your file pathway if needed.
+             ======================================================== -->
+        <div class="profile-round-container">
+            <img src="logo.png" alt="Profile Image">
         </div>
 
-        <!-- Heading -->
-        <h2 class="text-3xl font-bold mb-2">Pankaj Bhardwaj</h2>
-        <div class="inline-block bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border border-amber-500/20">
-            Official Channel
-        </div>
+        <!-- ========================================================
+             2. EDIT MAIN NAME HERE
+             Replace "Zero to Hero" with your custom channel/brand name.
+             ======================================================== -->
+        <h1 class="main-title">Zero to Hero</h1>
 
-        <!-- Redirecting Timer Alert Box -->
-        <div class="w-full bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 mb-6 text-sm text-amber-400 font-medium flex items-center justify-center gap-2">
-            <i class="fa-solid fa-clock animate-pulse"></i>
-            <span>Redirecting to Telegram in: <strong id="timer" class="text-lg font-bold text-amber-500">20</strong> seconds</span>
-        </div>
-
-        <!-- Profit Box Card -->
-        <div class="w-full bg-gray-800 border border-gray-700 rounded-2xl p-6 shadow-2xl mb-8 transform transition hover:scale-[1.02]">
-            <p class="text-gray-400 text-sm font-medium uppercase tracking-wider mb-2">Always Profit – Daily Earn Up To</p>
-            <p class="text-4xl md:text-5xl font-black text-green-400 mb-4">₹5,000</p>
-            
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-300 bg-gray-900/50 py-2 px-4 rounded-xl border border-gray-700/50">
-                <span class="flex h-3 w-3 relative">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                </span>
-                <span class="font-semibold text-green-400">23,636+</span> active traders earning daily
+        <!-- Configuration for counts -->
+        <div class="stats-line">
+            <div class="stats-item members">
+                <i class="fa-solid fa-users"></i> 45,031+ Active Members
+            </div>
+            <div class="stats-item">•</div>
+            <div class="stats-item signals">
+                <i class="fa-solid fa-chart-line"></i> Live Signals
             </div>
         </div>
 
-        <!-- CTA Telegram Button -->
-        <a id="tg-btn" href="https://t.me" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 bg-[#0088cc] hover:bg-[#0077b3] text-white text-lg font-bold py-4 px-6 rounded-2xl shadow-lg shadow-[#0088cc]/30 transition-all duration-300 transform active:scale-95 animate-bounce">
-            <i class="fa-brands fa-telegram text-2xl"></i>
-            Join VIP Channel Via Telegram
+        <!-- ========================================================
+             3. EDIT TELEGRAM LINK HERE
+             Replace "#" with your valid Telegram community channel link.
+             Example: href="https://t.me"
+             ======================================================== -->
+        <a href="#" class="tg-btn">
+            <i class="fa-brands fa-telegram"></i> Join Telegram Channel 🚀
         </a>
 
-    </main>
+        <!-- Feature Layout List -->
+        <div class="features-list">
+            
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="feature-text">Nifty & BankNifty levels & Stock option calls</div>
+            </div>
 
-    <!-- Footer Section -->
-    <footer class="w-full text-center py-4 bg-gray-950 border-t border-gray-800 text-xs text-gray-500 tracking-wide font-medium">
-        Ad managed by snow ads
-    </footer>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-shield"></i></div>
+                <div class="feature-text">Daily 4-5 zero hero trade with 95% accuracy</div>
+            </div>
 
-    <!-- Auto Redirect Script -->
-    <script>
-        // यहाँ अपना टेलीग्राम लिंक डालें (यह बटन और ऑटो-रीडायरेक्ट दोनों जगह काम करेगा)
-        const telegramLink = "https://t.me"; 
-        
-        // बटन में लिंक सेट करना
-        document.getElementById('tg-btn').setAttribute('href', telegramLink);
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="feature-text">Real-time Alerts on Telegram</div>
+            </div>
 
-        let timeLeft = 20;
-        const timerElement = document.getElementById('timer');
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <div class="feature-text">24/7 Support & Guidance</div>
+            </div>
 
-        const countdown = setInterval(() => {
-            timeLeft--;
-            timerElement.textContent = timeLeft;
+        </div>
 
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
-                timerElement.parentElement.innerHTML = "<span class='text-green-400 font-bold'>Redirecting now...</span>";
-                // 20 सेकंड पूरे होते ही इस लिंक पर ऑटोमैटिक भेज देगा
-                window.location.href = telegramLink; 
-            }
-        }, 1000);
-    </script>
+        <!-- Pricing Highlight Overlay -->
+        <div class="free-banner">
+            🎯 <strong>100% Free</strong> • Daily accurate signals • No hidden charges
+        </div>
+
+        <!-- ========================================================
+             4. EDIT SNOW ADS AGENCY LINK HERE
+             Replace the first "#" link with your Agency landing url.
+             Replace the second "#" link with your setup/contact url.
+             ======================================================== -->
+        <div class="footer-ad">
+            📢 Ad by <a href="#">Snow Ads Agency</a> • <a href="#">Setup your ad →</a>
+        </div>
+
+    </div>
 
 </body>
 </html>
