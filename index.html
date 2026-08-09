@@ -1,508 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-background">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Join our official Telegram channel for instant updates, exclusive content, and the latest information delivered directly to you." />
-  <meta name="theme-color" content="#f5f7ff" />
-  <title>Join Our Telegram Channel — Instant Updates & Exclusive Content</title>
-
+  <title>Join Our Telegram Channel</title>
+  <meta name="description" content="Get instant updates, exclusive content and the latest information directly on Telegram. Join now." />
   <style>
-    /* =========================================================
-       DESIGN TOKENS
-    ========================================================= */
     :root {
-      --bg: #f6f8ff;
-      --bg-2: #eef1fb;
-      --surface: rgba(255, 255, 255, 0.72);
-      --surface-solid: #ffffff;
+      --bg: #f6f8fc;
+      --card: #ffffff;
       --ink: #0f172a;
-      --ink-soft: #475569;
-      --ink-mute: #94a3b8;
-      --brand: #2f8bfb;
-      --brand-2: #7c5cff;
-      --brand-deep: #1d6fe0;
-      --ring: rgba(47, 139, 251, 0.35);
+      --muted: #64748b;
+      --brand: #2f6bff;
+      --brand-2: #7c4dff;
+      --ring: rgba(47, 107, 255, 0.35);
       --border: rgba(15, 23, 42, 0.08);
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 10px 30px -12px rgba(30, 64, 175, 0.28);
-      --shadow-lg: 0 40px 80px -30px rgba(60, 80, 200, 0.35);
-      --radius: 28px;
-      --radius-sm: 16px;
-      --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --shadow: 0 30px 60px -20px rgba(37, 60, 120, 0.28);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body { height: 100%; }
 
     body {
-      font-family: var(--font);
-      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      line-height: 1.5;
+      color: var(--ink);
       min-height: 100dvh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px 18px;
+      padding: 24px 16px;
       position: relative;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* =========================================================
-       PREMIUM BACKGROUND
-    ========================================================= */
-    .bg {
+    /* Premium radial + floating gradient background */
+    body::before,
+    body::after {
+      content: "";
       position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(120% 90% at 15% 10%, rgba(124, 92, 255, 0.14), transparent 55%),
-        radial-gradient(120% 90% at 85% 15%, rgba(47, 139, 251, 0.16), transparent 55%),
-        radial-gradient(120% 120% at 50% 110%, rgba(124, 92, 255, 0.10), transparent 60%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-    }
-
-    .orb {
-      position: fixed;
-      z-index: -1;
       border-radius: 50%;
-      filter: blur(60px);
+      filter: blur(70px);
+      z-index: 0;
       opacity: 0.55;
       pointer-events: none;
-      will-change: transform;
     }
-    .orb.a {
-      width: 340px; height: 340px;
-      top: -120px; left: -80px;
-      background: radial-gradient(circle, rgba(47,139,251,0.55), transparent 70%);
+    body::before {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle at 30% 30%, #8fb2ff, transparent 70%);
+      top: -140px; left: -120px;
       animation: float1 14s ease-in-out infinite;
     }
-    .orb.b {
-      width: 380px; height: 380px;
-      bottom: -140px; right: -100px;
-      background: radial-gradient(circle, rgba(124,92,255,0.5), transparent 70%);
-      animation: float2 18s ease-in-out infinite;
+    body::after {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle at 70% 70%, #c6b3ff, transparent 70%);
+      bottom: -140px; right: -120px;
+      animation: float2 16s ease-in-out infinite;
     }
 
     @keyframes float1 {
-      0%,100% { transform: translate(0,0); }
+      0%, 100% { transform: translate(0, 0); }
       50% { transform: translate(40px, 30px); }
     }
     @keyframes float2 {
-      0%,100% { transform: translate(0,0); }
-      50% { transform: translate(-35px, -25px); }
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-40px, -30px); }
     }
 
-    /* =========================================================
-       CARD
-    ========================================================= */
     .card {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: 440px;
-      background: var(--surface);
-      backdrop-filter: blur(22px) saturate(150%);
-      -webkit-backdrop-filter: blur(22px) saturate(150%);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      padding: 40px 30px 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 40px 28px 28px;
+      box-shadow: var(--shadow);
       text-align: center;
-      position: relative;
-      opacity: 0;
-      transform: translateY(24px) scale(0.98);
-      animation: cardIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+      backdrop-filter: saturate(180%) blur(6px);
+      animation: cardIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
     @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* stagger children */
-    .reveal { opacity: 0; transform: translateY(14px); animation: revealIn 0.6s ease forwards; }
-    .reveal:nth-child(1) { animation-delay: 0.30s; }
-    .reveal:nth-child(2) { animation-delay: 0.40s; }
-    .reveal:nth-child(3) { animation-delay: 0.50s; }
-    .reveal:nth-child(4) { animation-delay: 0.60s; }
-    .reveal:nth-child(5) { animation-delay: 0.70s; }
-    .reveal:nth-child(6) { animation-delay: 0.80s; }
-
-    @keyframes revealIn { to { opacity: 1; transform: translateY(0); } }
-
-    /* =========================================================
-       BADGE / ICON
-    ========================================================= */
-    .badge {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 22px;
+    /* Logo */
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 84px; height: 84px;
       border-radius: 22px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(140deg, var(--brand), var(--brand-2));
-      box-shadow: 0 18px 34px -12px var(--ring), inset 0 1px 0 rgba(255,255,255,0.4);
-      position: relative;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 14px 30px -10px var(--ring);
+      margin-bottom: 22px;
+      overflow: hidden;
+      animation: pop 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
-    .badge::after {
-      content: "";
-      position: absolute;
-      inset: -6px;
-      border-radius: 26px;
-      background: linear-gradient(140deg, var(--brand), var(--brand-2));
-      filter: blur(14px);
-      opacity: 0.45;
-      z-index: -1;
-      animation: pulse 3s ease-in-out infinite;
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
-    @keyframes pulse { 0%,100% { opacity: 0.35; } 50% { opacity: 0.6; } }
-    .badge svg { width: 40px; height: 40px; }
 
-    /* =========================================================
-       TYPOGRAPHY
-    ========================================================= */
+    @keyframes pop {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     h1 {
-      font-size: clamp(1.65rem, 6vw, 2.1rem);
-      font-weight: 800;
+      font-size: clamp(1.6rem, 6vw, 2.05rem);
+      line-height: 1.2;
       letter-spacing: -0.02em;
-      line-height: 1.15;
       margin-bottom: 12px;
       text-wrap: balance;
-      background: linear-gradient(120deg, var(--ink), #33415f);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
     }
-    .subtitle {
+
+    .sub {
+      color: var(--muted);
       font-size: 1rem;
-      color: var(--ink-soft);
+      line-height: 1.55;
       max-width: 340px;
       margin: 0 auto 26px;
       text-wrap: pretty;
     }
 
-    /* =========================================================
-       COUNTDOWN
-    ========================================================= */
+    /* Countdown */
     .countdown {
-      margin: 0 auto 26px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 26px;
     }
-    .ring-wrap { position: relative; width: 132px; height: 132px; }
-    .ring-wrap svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-    .ring-bg { fill: none; stroke: rgba(15,23,42,0.08); stroke-width: 9; }
-    .ring-fg {
-      fill: none;
+    .ring {
+      position: relative;
+      width: 132px; height: 132px;
+    }
+    .ring svg { transform: rotate(-90deg); display: block; }
+    .ring .track { stroke: rgba(47, 107, 255, 0.12); }
+    .ring .bar {
       stroke: url(#grad);
-      stroke-width: 9;
       stroke-linecap: round;
       transition: stroke-dashoffset 1s linear;
     }
-    .count-num {
+    .ring .num {
       position: absolute;
       inset: 0;
-      display: grid;
-      place-items: center;
-      font-size: 2.9rem;
-      font-weight: 800;
-      color: var(--ink);
-      letter-spacing: -0.03em;
-    }
-    .count-num span { display: inline-block; animation: numPop 0.4s ease; }
-    @keyframes numPop {
-      0% { transform: scale(0.6); opacity: 0; }
-      60% { transform: scale(1.08); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .redirect-text {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--ink);
+      justify-content: center;
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .redirect-text svg { width: 16px; height: 16px; color: var(--brand); }
-    .please-wait { font-size: 0.82rem; color: var(--ink-mute); }
+    .ring .num span { animation: tick 1s ease; display: inline-block; }
+    @keyframes tick {
+      0% { opacity: 0; transform: translateY(8px) scale(0.85); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .cd-text { font-size: 0.95rem; color: var(--ink); font-weight: 600; }
+    .cd-hint { font-size: 0.85rem; color: var(--muted); margin-top: -6px; }
 
-    /* =========================================================
-       CTA BUTTON
-    ========================================================= */
+    /* CTA */
     .cta {
+      position: relative;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 16px 30px -12px var(--ring);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      width: 100%;
-      padding: 17px 24px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      color: #fff;
-      border: none;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow: 0 16px 30px -10px var(--ring), inset 0 1px 0 rgba(255,255,255,0.35);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.18s ease, box-shadow 0.25s ease;
-      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
     }
-    .cta svg { width: 22px; height: 22px; }
-    .cta::before {
+    .cta::after {
       content: "";
       position: absolute;
-      top: 0; left: -120%;
-      width: 60%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
-      transform: skewX(-20deg);
-      animation: shine 3.2s ease-in-out infinite;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: 0 0 0 0 var(--ring);
+      animation: glow 2.4s ease-in-out infinite;
     }
-    @keyframes shine {
-      0% { left: -120%; }
-      55%,100% { left: 160%; }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(47, 107, 255, 0.35); }
+      50% { box-shadow: 0 0 0 10px rgba(47, 107, 255, 0); }
     }
-    .cta:hover { transform: translateY(-2px); box-shadow: 0 22px 40px -12px var(--ring), inset 0 1px 0 rgba(255,255,255,0.35); }
-    .cta:active { transform: translateY(0) scale(0.97); }
+    .cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
+    .cta:active { transform: translateY(0) scale(0.98); }
+    .cta svg { width: 22px; height: 22px; }
 
-    /* =========================================================
-       TRUST
-    ========================================================= */
+    /* Trust */
     .trust {
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px 16px;
+      gap: 8px 18px;
       margin-top: 20px;
     }
     .trust li {
-      list-style: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--ink-soft);
+      color: var(--muted);
+      font-weight: 500;
     }
-    .trust li svg { width: 15px; height: 15px; color: #22c55e; flex-shrink: 0; }
+    .trust li svg { width: 16px; height: 16px; color: var(--brand); }
 
-    .divider {
-      height: 1px;
-      width: 100%;
-      margin: 24px 0 16px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-    }
-
-    /* =========================================================
-       CREDIT / FOOTER
-    ========================================================= */
-    .credit { font-size: 0.85rem; color: var(--ink-mute); }
-    .credit a {
-      color: var(--brand-deep);
-      font-weight: 700;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .credit a:hover { color: var(--brand-2); text-decoration: underline; }
-
+    /* Footer */
     footer {
-      margin-top: 22px;
-      text-align: center;
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
       font-size: 0.8rem;
-      color: var(--ink-mute);
-      line-height: 1.8;
-      opacity: 0;
-      animation: revealIn 0.6s ease 0.9s forwards;
+      color: var(--muted);
+      line-height: 1.7;
     }
     footer a {
-      color: var(--brand-deep);
+      color: var(--brand);
       font-weight: 600;
       text-decoration: none;
     }
     footer a:hover { text-decoration: underline; }
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-    @media (max-width: 380px) {
-      .card { padding: 32px 22px 26px; border-radius: 24px; }
-      .badge { width: 68px; height: 68px; }
-      .ring-wrap { width: 120px; height: 120px; }
-      .count-num { font-size: 2.5rem; }
-    }
-    @media (min-width: 768px) {
-      .card { max-width: 480px; padding: 48px 44px 36px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition: none !important; }
-      .card, .reveal, footer { opacity: 1 !important; transform: none !important; }
+    @media (max-width: 360px) {
+      .card { padding: 32px 20px 22px; border-radius: 24px; }
+      .ring { width: 116px; height: 116px; }
+      .ring .num { font-size: 2.2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="orb a" aria-hidden="true"></div>
-  <div class="orb b" aria-hidden="true"></div>
-
-  <main class="card" role="main">
-    <!-- Telegram badge -->
-    <div class="badge reveal" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21.94 4.32a1.2 1.2 0 0 0-1.28-.18L3.4 11.05c-.94.38-.9 1.73.06 2.05l4.2 1.4 1.6 4.98a1.03 1.03 0 0 0 1.72.42l2.3-2.28 4.13 3.04c.62.46 1.5.13 1.67-.62l3.02-14.3a1.2 1.2 0 0 0-.46-1.42Zm-4.1 3.03-7.3 6.53a.9.9 0 0 0-.29.56l-.28 2.2-1.2-3.74 8.9-5.86c.3-.2.6.2.37.31Z"/>
-      </svg>
+  <main class="card" aria-labelledby="title">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Channel logo" />
     </div>
 
-    <h1 class="reveal">Join Our Telegram Channel</h1>
-    <p class="subtitle reveal">Get instant updates, exclusive content and the latest information directly on Telegram.</p>
+    <h1 id="title">Join Our Telegram Channel</h1>
+    <p class="sub">Get instant updates, exclusive content and the latest information directly on Telegram.</p>
 
-    <!-- Countdown -->
-    <div class="countdown reveal" aria-live="polite">
-      <div class="ring-wrap">
-        <svg viewBox="0 0 120 120">
+    <div class="countdown" aria-live="polite">
+      <div class="ring">
+        <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
           <defs>
             <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#2f8bfb" />
-              <stop offset="100%" stop-color="#7c5cff" />
+              <stop offset="0%" stop-color="#2f6bff" />
+              <stop offset="100%" stop-color="#7c4dff" />
             </linearGradient>
           </defs>
-          <circle class="ring-bg" cx="60" cy="60" r="52" />
-          <circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52" />
+          <circle class="track" cx="66" cy="66" r="58" fill="none" stroke-width="8" />
+          <circle class="bar" id="bar" cx="66" cy="66" r="58" fill="none" stroke-width="8" />
         </svg>
-        <div class="count-num"><span id="countNum">10</span></div>
+        <div class="num" id="num"><span>10</span></div>
       </div>
-      <div class="redirect-text">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.32a1.2 1.2 0 0 0-1.28-.18L3.4 11.05c-.94.38-.9 1.73.06 2.05l4.2 1.4 1.6 4.98a1.03 1.03 0 0 0 1.72.42l2.3-2.28 4.13 3.04c.62.46 1.5.13 1.67-.62l3.02-14.3a1.2 1.2 0 0 0-.46-1.42Z"/></svg>
-        Redirecting to Telegram…
-      </div>
-      <div class="please-wait">Please wait…</div>
+      <p class="cd-text">Redirecting to Telegram…</p>
+      <p class="cd-hint">Please wait…</p>
     </div>
 
-    <!-- CTA -->
-    <button class="cta reveal" id="joinBtn" type="button" aria-label="Join our Telegram channel now">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.32a1.2 1.2 0 0 0-1.28-.18L3.4 11.05c-.94.38-.9 1.73.06 2.05l4.2 1.4 1.6 4.98a1.03 1.03 0 0 0 1.72.42l2.3-2.28 4.13 3.04c.62.46 1.5.13 1.67-.62l3.02-14.3a1.2 1.2 0 0 0-.46-1.42Z"/></svg>
+    <button class="cta" id="joinBtn" type="button" aria-label="Join our Telegram channel now">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M21.94 4.6 18.9 19.2c-.23 1.02-.84 1.27-1.7.79l-4.7-3.47-2.27 2.18c-.25.25-.46.46-.94.46l.34-4.78 8.7-7.86c.38-.34-.08-.53-.59-.19L6.99 13.2l-4.64-1.45c-1.01-.32-1.03-1.01.21-1.5l18.14-6.99c.84-.31 1.58.2 1.24 1.34Z"/>
+      </svg>
       JOIN TELEGRAM
     </button>
 
-    <!-- Trust -->
-    <ul class="trust reveal">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fast Access</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free to Join</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Instant Updates</li>
+    <ul class="trust">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Fast Access</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Free to Join</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Instant Updates</li>
     </ul>
 
-    <div class="divider" aria-hidden="true"></div>
-
-    <p class="credit">Advertise with <a id="creditLink" href="#" target="_blank" rel="noopener noreferrer">Snow ads</a></p>
+    <footer>
+      <div>&copy; 2026 &bull; All Rights Reserved</div>
+      <div>Advertise with <a id="agencyLink" href="#" target="_blank" rel="noopener noreferrer">Param Ad Optimizer</a></div>
+    </footer>
   </main>
 
-  <footer>
-    <div>&copy; 2026 &bull; All Rights Reserved</div>
-    <div>Landing Page by <a id="footerLink" href="#" target="_blank" rel="noopener noreferrer">Param Ad Optimizer</a></div>
-  </footer>
-
   <script>
-    /* =========================================================
-       ⚙️  EASY CONFIGURATION — EDIT THESE THREE VALUES ONLY
-       1. TELEGRAM_URL     → your Telegram channel/group link
-       2. AGENCY_URL       → your agency / advertiser link
-       3. COUNTDOWN_SECONDS → how long before auto-redirect
-    ========================================================= */
-    const TELEGRAM_URL = "https://t.me/+T8e3zs5LKxFmZGU1";
-    const AGENCY_URL = "https://telegram.me/+gZcHbMz22XcyN2Y1";
-    const COUNTDOWN_SECONDS = 10;
-    /* ========================================================= */
+    /* ============================================================
+       EDIT THESE THREE VALUES ONLY
+       ============================================================ */
+    const TELEGRAM_URL = "https://t.me/yourchannel"; // 1. Telegram link
+    const AGENCY_URL = "https://example.com";          // 2. Agency link
+    const COUNTDOWN_SECONDS = 10;                      // 3. Countdown duration
+    /* ============================================================ */
 
     (function () {
-      "use strict";
-
-      // --- Element references ---
-      const numEl = document.getElementById("countNum");
-      const ringEl = document.getElementById("ringFg");
+      const bar = document.getElementById("bar");
+      const num = document.getElementById("num");
       const joinBtn = document.getElementById("joinBtn");
-      const creditLink = document.getElementById("creditLink");
-      const footerLink = document.getElementById("footerLink");
+      const agencyLink = document.getElementById("agencyLink");
 
-      // --- Wire up agency links ---
-      creditLink.href = AGENCY_URL;
-      footerLink.href = AGENCY_URL;
-
-      // --- Ring geometry ---
-      const R = 52;
+      const R = 58;
       const CIRC = 2 * Math.PI * R;
-      ringEl.style.strokeDasharray = CIRC;
-      ringEl.style.strokeDashoffset = 0;
+      bar.style.strokeDasharray = CIRC;
+      bar.style.strokeDashoffset = 0;
 
-      // --- State ---
-      let remaining = Math.max(1, parseInt(COUNTDOWN_SECONDS, 10) || 10);
-      let timerId = null;
+      let remaining = COUNTDOWN_SECONDS;
+      let timer = null;
       let redirected = false;
       let cancelled = false;
 
-      // --- Redirect helper (guarded against duplicates) ---
+      function render() {
+        num.innerHTML = "<span>" + remaining + "</span>";
+        const progress = remaining / COUNTDOWN_SECONDS;
+        bar.style.strokeDashoffset = CIRC * (1 - progress);
+      }
+
       function goToTelegram() {
-        if (redirected) return;
+        if (redirected || cancelled) return;
         redirected = true;
-        if (timerId) { clearInterval(timerId); timerId = null; }
         window.location.href = TELEGRAM_URL;
       }
 
-      // --- Render current state ---
-      function render() {
-        numEl.textContent = remaining;
-        // retrigger number pop animation
-        numEl.style.animation = "none";
-        void numEl.offsetWidth;
-        numEl.style.animation = "";
-        const progress = remaining / (parseInt(COUNTDOWN_SECONDS, 10) || 10);
-        ringEl.style.strokeDashoffset = CIRC * (1 - progress);
+      function stopCountdown() {
+        cancelled = true;
+        if (timer) { clearInterval(timer); timer = null; }
       }
 
-      // --- Tick ---
       function tick() {
-        if (cancelled || redirected) return;
         remaining -= 1;
         if (remaining <= 0) {
-          numEl.textContent = "0";
-          ringEl.style.strokeDashoffset = CIRC;
+          remaining = 0;
+          render();
+          stopCountdown();
           goToTelegram();
           return;
         }
         render();
       }
 
-      // --- Start countdown (prevent duplicate timers) ---
-      function startCountdown() {
-        if (timerId) return;
-        render();
-        timerId = setInterval(tick, 1000);
-      }
+      // Init
+      num.querySelector("span").textContent = COUNTDOWN_SECONDS;
+      render();
+      if (!timer) timer = setInterval(tick, 1000);
 
-      // --- CTA: immediate join ---
+      // Manual join
       joinBtn.addEventListener("click", function () {
-        goToTelegram();
+        stopCountdown();
+        redirected = false; // allow manual navigation
+        window.location.href = TELEGRAM_URL;
       });
 
-      // --- Agency links: open in new tab, do NOT trigger Telegram redirect ---
-      function handleAgencyClick(e) {
-        e.stopPropagation();
-        cancelled = true;               // stop the countdown for this click
-        if (timerId) { clearInterval(timerId); timerId = null; }
-        // Let the default anchor behavior open AGENCY_URL in a new tab.
-      }
-      creditLink.addEventListener("click", handleAgencyClick);
-      footerLink.addEventListener("click", handleAgencyClick);
-
-      // --- Kick off ---
-      startCountdown();
+      // Agency link: opens in new tab, cancels the Telegram redirect
+      agencyLink.href = AGENCY_URL;
+      agencyLink.addEventListener("click", function () {
+        stopCountdown();
+      });
     })();
   </script>
 </body>
-</html>
