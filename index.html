@@ -1,272 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1401955301151525');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1401955301151525&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zero to Hero</title>
-    <!-- Font Awesome Icons for professional visuals -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background: #0f0c1b; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+<title>Gujarati Trading</title>
 
-        /* Main Container Card - Matches your screenshot layout exactly */
-        .card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 430px; /* Perfect, premium sizing for all mobile viewports */
-            border-radius: 30px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
+<style>
 
-        /* 1. Profile Round Image Container (Compact & Sharp) */
-        .profile-round-container {
-            width: 85px; /* Attractive, optimal circle size matching the original asset */
-            height: 85px;
-            margin: 5px auto 15px auto;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            background: #111e3d; /* Fallback dark background */
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .profile-round-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Keeps the profile image crisp and perfectly centered */
-        }
+body{
+    background:#090c0d;
+    color:#f5f1e7;
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+}
 
-        /* Typography & Header styling */
-        .main-title {
-            color: #5856d6;
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+/* BACKGROUND */
 
-        .stats-line {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 22px;
-            flex-wrap: wrap;
-        }
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:100% 180px,180px 100%;
+    pointer-events:none;
+    z-index:-1;
+}
 
-        .stats-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+/* HERO */
 
-        .stats-item.members { color: #2ecc71; font-weight: 600; }
-        .stats-item.signals { color: #3498db; font-weight: 600; }
+.hero{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    padding:45px 34px 30px;
+    text-align:center;
+}
 
-        /* Telegram Direct Action Button */
-        .tg-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, #5b62f4, #8340f1);
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 15px;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(91, 98, 244, 0.35);
-            transition: transform 0.2s;
-        }
+.small-title{
+    color:#f1d36e;
+    letter-spacing:3px;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:35px;
+}
 
-        .tg-btn:active {
-            transform: scale(0.97);
-        }
+.profile{
+    width:190px;
+    height:190px;
+    margin:auto;
+    border-radius:50%;
+    padding:5px;
+    border:2px solid #d9ae32;
+    box-shadow:0 0 35px rgba(219,174,50,.18);
+}
 
-        /* Features List block spacing */
-        .features-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
+.profile img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+}
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: #f8f9fe;
-            border: 1px solid #edf0f9;
-            padding: 14px 16px;
-            border-radius: 15px;
-            text-align: left;
-        }
+/* IMPORTANT:
+   Agar profile.jpg nahi hai to ye placeholder image dikhegi.
+*/
 
-        .feature-icon {
-            width: 34px;
-            height: 34px;
-            background: #eceaff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #5856d6;
-            font-size: 15px;
-            flex-shrink: 0;
-        }
+.profile img{
+    background:#24241f;
+}
 
-        .feature-text {
-            color: #333333;
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
+h1{
+    font-family:Georgia,serif;
+    font-size:56px;
+    color:#e6bd4e;
+    margin-top:42px;
+}
 
-        /* Banner styling */
-        .free-banner {
-            background: #f0edff;
-            border: 1px dashed #c0b3ff;
-            border-radius: 15px;
-            padding: 12px;
-            font-size: 13px;
-            color: #5856d6;
-            margin-bottom: 20px;
-        }
+.gujarati{
+    color:#f0d36e;
+    font-size:20px;
+    margin-top:8px;
+}
 
-        .free-banner strong {
-            color: #d63031;
-        }
+.badge{
+    display:inline-block;
+    border:1px solid #3b3825;
+    border-radius:30px;
+    padding:13px 22px;
+    margin-top:28px;
+    color:#f2d475;
+    font-weight:bold;
+}
 
-        /* Footer Sponsor Section */
-        .footer-ad {
-            font-size: 12px;
-            color: #888;
-        }
+.badge span{
+    color:#9298a0;
+    font-weight:normal;
+}
 
-        .footer-ad a {
-            color: #5856d6;
-            text-decoration: none;
-            font-weight: 600;
-        }
-    </style>
+/* MARKET BAR */
+
+.markets{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    margin-top:75px;
+    border-top:1px solid #28291f;
+    border-bottom:1px solid #28291f;
+}
+
+.markets div{
+    padding:20px 5px;
+    border-right:1px solid #28291f;
+    font-family:Georgia,serif;
+    font-size:18px;
+    white-space:nowrap;
+}
+
+.markets div:last-child{
+    border-right:0;
+}
+
+.dot{
+    color:#15cf7b;
+}
+
+/* HEADING */
+
+.why{
+    color:#e8ca66;
+    letter-spacing:3px;
+    font-size:14px;
+    font-weight:bold;
+    margin-top:80px;
+}
+
+h2{
+    font-family:Georgia,serif;
+    font-size:46px;
+    line-height:1.15;
+    margin:28px 0;
+}
+
+h2 span{
+    color:#15c979;
+}
+
+/* TELEGRAM BUTTON */
+
+.telegram-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:17px;
+    width:100%;
+    padding:21px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#2db4e9,#188fd0);
+    color:white;
+    text-decoration:none;
+    font-size:27px;
+    font-weight:bold;
+    box-shadow:0 12px 35px rgba(29,169,225,.18);
+    transition:.2s;
+}
+
+.telegram-btn:hover{
+    transform:translateY(-2px);
+}
+
+.telegram-icon{
+    width:43px;
+    height:43px;
+    background:white;
+    color:#209bd5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+}
+
+.subtext{
+    color:#737b86;
+    font-size:18px;
+    margin-top:35px;
+}
+
+/* FEATURES */
+
+.features{
+    width:100%;
+    max-width:720px;
+    margin:45px auto;
+    padding:0 34px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.feature-card{
+    min-height:285px;
+    padding:30px 15px;
+    text-align:center;
+    border:1px solid #393521;
+    border-radius:22px;
+    background:rgba(25,25,23,.65);
+}
+
+.icon{
+    width:63px;
+    height:63px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#292718;
+    color:#f2d26b;
+    border-radius:18px;
+    font-size:28px;
+}
+
+.feature-card h3{
+    font-family:Georgia,serif;
+    font-size:24px;
+    margin-top:24px;
+}
+
+.feature-card p{
+    color:#747b86;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+/* OFFER */
+
+.offer{
+    width:calc(100% - 68px);
+    max-width:640px;
+    margin:70px auto;
+    padding:45px 30px;
+    text-align:center;
+    border:1px solid #3b3827;
+    border-radius:30px;
+    background:rgba(22,23,22,.75);
+}
+
+.offer-title{
+    color:#ff626c;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.circle{
+    width:220px;
+    height:220px;
+    border:9px solid #f2d26b;
+    border-left-color:#41391e;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:45px auto 20px;
+}
+
+.circle strong{
+    font-family:Georgia,serif;
+    font-size:55px;
+    color:#f3d36c;
+}
+
+.offer p{
+    color:#777e89;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+/* QUOTE */
+
+.quote{
+    width:calc(100% - 68px);
+    max-width:650px;
+    margin:60px auto;
+    padding:38px;
+    border-left:7px solid #d4aa22;
+    border-top:1px solid #393521;
+    border-right:1px solid #393521;
+    border-bottom:1px solid #393521;
+    border-radius:20px;
+    background:rgba(28,27,20,.55);
+    display:flex;
+    gap:22px;
+    align-items:center;
+}
+
+.quote-icon{
+    min-width:35px;
+    height:35px;
+    border:3px solid #f1d26b;
+    color:#f1d26b;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.quote p{
+    font-size:24px;
+    line-height:1.7;
+    font-weight:bold;
+}
+
+/* DISCLAIMER */
+
+.disclaimer{
+    width:calc(100% - 68px);
+    max-width:650px;
+    margin:60px auto;
+    padding:40px 34px;
+    border:1px solid #393521;
+    border-radius:22px;
+    background:rgba(20,21,21,.65);
+}
+
+.disclaimer h3{
+    color:#f1d26b;
+    letter-spacing:2px;
+    margin-bottom:25px;
+    font-size:18px;
+}
+
+.disclaimer p{
+    color:#747b86;
+    font-size:17px;
+    line-height:2;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:80px;
+    padding:45px 20px;
+    text-align:center;
+    border-top:1px solid #302d20;
+    color:#747b86;
+    font-size:17px;
+}
+
+footer strong{
+    color:#e6c457;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .hero{
+        padding:35px 34px;
+    }
+
+    .profile{
+        width:160px;
+        height:160px;
+    }
+
+    h1{
+        font-size:45px;
+    }
+
+    .gujarati{
+        font-size:18px;
+    }
+
+    .markets div{
+        font-size:14px;
+    }
+
+    h2{
+        font-size:38px;
+    }
+
+    .telegram-btn{
+        font-size:22px;
+        padding:19px 10px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .feature-card{
+        min-height:auto;
+        padding:28px;
+    }
+
+    .quote p{
+        font-size:20px;
+    }
+
+    .disclaimer p{
+        font-size:15px;
+    }
+
+}
+
+</style>
 </head>
+
+
 <body>
 
-    <div class="card">
-        
-        <!-- ========================================================
-             1. EDIT IMAGE HERE
-             This is your round profile area using 'logo.png'.
-             Change "logo.png" to your file pathway if needed.
-             ======================================================== -->
-        <div class="profile-round-container">
-            <img src="logo.png" alt="Profile Image">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="small-title">
+        ★ &nbsp; MARKET RESEARCH & EDUCATION
+    </div>
+
+
+    <div class="profile">
+
+        <!--
+        APNI PHOTO YAHAN LAGANI HAI
+
+        GitHub par photo upload karke
+        uska naam profile.jpg rakho.
+        -->
+
+        <img src="profile.jpg" alt="Profile">
+
+    </div>
+
+
+    <h1>Gujarati Trading</h1>
+
+    <div class="gujarati">
+        ( ગુજરાતી વેપારી )
+    </div>
+
+
+    <div class="badge">
+        🛡️ &nbsp; Market Research
+        &nbsp;&nbsp;
+        <span>Educational Updates</span>
+    </div>
+
+
+    <div class="markets">
+
+        <div>
+            <span class="dot">●</span>
+            NIFTY 50
         </div>
 
-        <!-- ========================================================
-             2. EDIT MAIN NAME HERE
-             Replace "Zero to Hero" with your custom channel/brand name.
-             ======================================================== -->
-        <h1 class="main-title">𝘽𝘼𝘿𝙎𝙃𝘼𝙃_𝘽𝙍𝙊𝙆𝙄𝙉𝙂_𝙊𝙁𝙁</h1>
-
-        <!-- Configuration for counts -->
-        <div class="stats-line">
-            <div class="stats-item members">
-                <i class="fa-solid fa-users"></i> 45,031+ Active Members
-            </div>
-            <div class="stats-item">•</div>
-            <div class="stats-item signals">
-                <i class="fa-solid fa-chart-line"></i> Live Signals
-            </div>
+        <div>
+            <span class="dot">●</span>
+            BANK NIFTY
         </div>
 
-        <!-- ========================================================
-             3. EDIT TELEGRAM LINK HERE
-             Replace "#" with your valid Telegram community channel link.
-             Example: href="https://t.me"
-             ======================================================== -->
-        <a href="https://t.me/+T8e3zs5LKxFmZGU1" class="tg-btn">
-            <i class="fa-brands fa-telegram"></i> Join Telegram Channel 🚀
-        </a>
-
-        <!-- Feature Layout List -->
-        <div class="features-list">
-            
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
-                <div class="feature-text">Nifty & BankNifty levels & Stock option calls</div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-shield"></i></div>
-                <div class="feature-text">Daily 4-5 zero hero trade with 95% accuracy</div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                <div class="feature-text">Real-time Alerts on Telegram</div>
-            </div>
-
-            <div class="feature-item">
-                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
-                <div class="feature-text">24/7 Support & Guidance</div>
-            </div>
-
-        </div>
-
-        <!-- Pricing Highlight Overlay -->
-        <div class="free-banner">
-            🎯 <strong>100% Free</strong> • Daily accurate signals • No hidden charges
-        </div>
-
-        <!-- ========================================================
-             4. EDIT SNOW ADS AGENCY LINK HERE
-             Replace the first "#" link with your Agency landing url.
-             Replace the second "#" link with your setup/contact url.
-             ======================================================== -->
-        <div class="footer-ad">
-            📢 Ad by <a href="https://telegram.me/+gZcHbMz22XcyN2Y1">Snow Ads Agency</a> • <a href="https://telegram.me/+gZcHbMz22XcyN2Y1">Setup your ad →</a>
+        <div>
+            <span class="dot">●</span>
+            SENSEX
         </div>
 
     </div>
+
+
+    <p class="why">
+        WHY FOLLOW MARKET UPDATES
+    </p>
+
+
+    <h2>
+        Market Updates, Built on
+        <span>Research & Learning</span>
+    </h2>
+
+
+    <!-- TELEGRAM LINK #1 -->
+
+    <a
+    href="https://t.me/YOUR_TELEGRAM_USERNAME"
+    class="telegram-btn">
+
+        <span class="telegram-icon">➤</span>
+
+        Join Telegram
+
+    </a>
+
+
+    <p class="subtext">
+        Market Updates · Educational Content · Daily Analysis
+    </p>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+
+    <div class="feature-card">
+
+        <div class="icon">
+            ↗
+        </div>
+
+        <h3>
+            Market Updates
+        </h3>
+
+        <p>
+            Regular updates covering major market indices.
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <div class="icon">
+            ✓
+        </div>
+
+        <h3>
+            Research Based
+        </h3>
+
+        <p>
+            Information shared for educational purposes.
+        </p>
+
+    </div>
+
+
+
+    <div class="feature-card">
+
+        <div class="icon">
+            ◎
+        </div>
+
+        <h3>
+            Market Learning
+        </h3>
+
+        <p>
+            Learn about market movements and concepts.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= OFFER ================= -->
+
+<section class="offer">
+
+
+    <div class="offer-title">
+        ⚠ &nbsp; LIMITED ACCESS
+    </div>
+
+
+    <div class="circle">
+
+        <strong id="timer">
+            20
+        </strong>
+
+    </div>
+
+
+    <p>
+        Stay updated with the latest educational content
+    </p>
+
+
+    <!-- TELEGRAM LINK #2 -->
+
+    <a
+    href="https://t.me/YOUR_TELEGRAM_USERNAME"
+    class="telegram-btn">
+
+        <span class="telegram-icon">
+            ➤
+        </span>
+
+        Join Telegram
+
+    </a>
+
+
+</section>
+
+
+
+<!-- ================= QUOTE ================= -->
+
+<section class="quote">
+
+    <div class="quote-icon">
+        !
+    </div>
+
+    <p>
+        "नियम अनुसार अनुशासन ही सफलता की कुंजी है,
+        सही दिशा में लगे रहकर बढ़ते रहें।"
+    </p>
+
+</section>
+
+
+
+<!-- ================= DISCLAIMER ================= -->
+
+<section class="disclaimer">
+
+    <h3>
+        ⚠ &nbsp; STOCK MARKET DISCLAIMER
+    </h3>
+
+
+    <p>
+
+        Investments in securities markets are subject
+        to market risks. The information, market updates,
+        tips and analysis shared on this platform are
+        provided for educational and informational
+        purposes only and should not be considered
+        investment advice.
+
+        <br><br>
+
+        Past performance is not indicative of future
+        results. Trading and investing in equity, F&O
+        and other market instruments involve risk of
+        loss.
+
+        <br><br>
+
+        Please conduct your own research and consult
+        a qualified financial professional before making
+        investment decisions.
+
+    </p>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    Design By.
+    <strong>
+        BharatX Web Agency
+    </strong>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let time = 20;
+
+const timer =
+document.getElementById("timer");
+
+
+setInterval(function(){
+
+    time--;
+
+    if(time <= 0){
+
+        time = 20;
+
+    }
+
+    timer.innerText = time;
+
+},1000);
+
+
+</script>
+
 
 </body>
 </html>
